@@ -32,3 +32,5 @@ additional/**/.env
 
 **/minio-data/
 **/data/
+/mygitkey
+/mygitkey.pub
