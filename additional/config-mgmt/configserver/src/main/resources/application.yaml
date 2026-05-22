@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///C:\Users\hatzp\Desktop\Programming\EX_Microservices_ecom\additional\config-mgmt\configserver\src\main\resources\config
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#  profiles:
+#    # has to be mentioned as server defaults to Git config
+#    active: jdbc
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/config_db
+#    username: root
+#    password: Q!W@e3r4t5
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    config:
+#      server:
+#        jdbc:
+#          sql: "SELECT PROP_KEY, PROP_VALUE FROM PROPERTIES where APPLICATION=? and PROFILE=? and LABEL=?"
+#          default-label: main
+#  cloud:
+#    config:
+#      label: master
+#      server:
+#        git:
+#          uri: https://github.com/badeapaul3/app-config-SBMicro
+#          username: ${GIT_USER}
+#          password: ${GIT_TOKEN}
+server:
+  port: 8888
+
+encrypt:
+  key-store:
+    location: config-server.jks
+    password: mypass
+    alias: config-server-key
+#encrypt:
+#  key: "0E329232EA6D0D73"

@@ -1,0 +1,34 @@
+# runtime logs
+logs/
+*.log
+*.log.*
+
+# Observability runtime data (if created)
+additional/**/data/
+additional/**/tmp/
+additional/**/wal/
+additional/**/chunks/
+additional/**/cache/
+additional/**/__pycache__/
+
+# Env files (secrets/local overrides)
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Keep only templates tracked
+!.env.example
+!**/.env.example
+
+# Grafana local state/secrets (if present)
+additional/**/grafana/data/
+additional/**/grafana/plugins/
+additional/**/.env
+
+# MinIO internal metadata
+**/xl.meta
+**/.xl.meta
+
+**/minio-data/
+**/data/

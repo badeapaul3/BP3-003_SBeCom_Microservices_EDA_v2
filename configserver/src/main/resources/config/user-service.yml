@@ -1,0 +1,68 @@
+spring:
+  mongodb:
+#    uri: mongodb+srv://hatzpapa3_db_user:hF6UZpbzVP4SxGR7@user-data.anji0jw.mongodb.net/?appName=user-data
+    uri: ${MONGO_URI}
+    database: ecom_user
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    virtual-host: ${RABBITMQ_VHOST:guest}
+    connection-timeout: 30000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+    zipkin:
+      base-url: http://localhost:9411/api/v2/spans
+
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 7
+
+
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/userdb #or embarkx to use the db automatically created and assoc with the user
+#    driver-class-name: org.postgresql.Driver
+#    username: embarkx
+#    password: embarkx
+#  jpa:
+#    database: PostgreSQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+#  datasource:
+#    url: jdbc:h2:mem:test
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    show-sql: true
+
+server:
+  port: 8082
