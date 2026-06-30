@@ -66,3 +66,12 @@ logging:
 
 server:
   port: 8082
+
+keycloak:
+  admin:
+    username: user
+    password: user
+    server-url: http://localhost:8443
+    realm: ecom-app
+    client-id: admin-cli
+    client-uid: 173b0f05-f395-470d-8062-f36d67f21771
