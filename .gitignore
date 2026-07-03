@@ -12,7 +12,7 @@ additional/**/cache/
 additional/**/__pycache__/
 
 # Env files (secrets/local overrides)
-.env
+deploy/docker/.env
 .env.*
 **/.env
 **/.env.*
